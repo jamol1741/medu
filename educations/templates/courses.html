@@ -1,0 +1,87 @@
+{% extends 'blocks/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="card-columns">
+            {% for course in courses %}
+
+                <div class="card bg-light">
+                    <div class="card-header"><h5>{{ course.title }}</h5> </div>
+                    <div class="card-body text-left">
+                        {#                        <h3 class="pb-2 border-bottom">{{ course.title }}</h3>#}
+                        <p class="card-text">
+                            {{ course.description }}
+                        </p>
+
+                    </div>
+                    <div class="card-body text-left pb-1">
+
+                        <div class="row">
+                            <div class="col fixed">
+                                <a href="{{ course.url }}" class="btn btn-outline-info ">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-left">
+                        <div class="row">
+                            <div class="col">
+                                <a href="#"
+                                   class="btn text-center btn-primary btn-block">{{ course.education.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <span title="Davomiyligi" class="fixed">
+                                    <div class="small">
+                                    <img src="{% static 'img/time_machine.png' %}" class="ms">
+                                    {{ course.course_length.title }}
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-sm-4">
+                                <span title="Narxi" class="fixed">
+                                    <div class="text-left">
+                                        <div class="small">
+                                        <img src="{% static 'img/pricing.png' %}" class="ms">
+                                        {{ course.price }}
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span title="Talim turi" class="fixed">
+                                    <div class="small">
+                                    <img src="{% static 'img/globe.png' %}" class="ms">
+                                    {{ course.get_type_of_education }}
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+{#                    <div class="card-body text-left">#}
+{##}
+{#                    </div>#}
+
+
+                    <div class="card-footer text-muted text-right">
+                        <small class="text-muted">{{ course.published_at }}</small>
+                    </div>
+                </div>
+
+            {% empty %}
+                <h1>Hozrcha kurslar yo`q</h1>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

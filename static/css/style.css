@@ -1,0 +1,145 @@
+img.ms {
+    width: 18px;
+}
+
+p.card-text {
+    font-size: 14px;
+}
+/* .card-columns{
+  flex-wrap:wrap ;
+}  */
+/* @media screen and (max-width: 992px) {
+  .col {
+    width: 100%;
+  }
+}  */
+
+/* @media (min-width: 992px) {
+   .card-columns {column-count: 12;}
+  }
+
+  @media (min-width: 1200px) {
+     .card-columns {column-count: 1;}
+  }
+   */
+
+
+/*
+.card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 1;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 1;
+    }
+  } */
+.container-fluid{
+
+}
+  .card {
+    margin: 1rem;
+  }
+  @media (max-width: 575.98px) {
+    .card-columns {
+      column-count: 1;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 839px) {
+    .card-columns {
+      column-count: 1;
+    }
+  }
+  @media (min-width: 840px) and (max-width: 1199px) {
+    .card-columns {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 1200px) {
+      .card-columns {
+      column-count: 3;
+    }
+  }
+
+  .post .category a {
+    color: #999;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  
+.category a {
+    color: #999;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .category a::after {
+    content: ',';
+    color: #ddd;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .category a:last-of-type::after {
+    display: none;
+  }
+  
+  .category a:hover {
+    color: #000;
+  }
+  
+.post .post-tags {
+    margin-top: 30px;
+  }
+  
+  .post .post-tags .tag {
+    padding: 5px 25px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    color: #777;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+  
+  .post .post-tags .tag:hover {
+    background: #999;
+    color: #fff;
+    border-color: #999;
+  }
+
+  
+.widget.tags .tag {
+    padding: 5px 25px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    color: #777;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+  
+  .widget.tags .tag:hover {
+    background: #999;
+    color: #fff;
+    border-color: #999;
+  }
+
+  
+  

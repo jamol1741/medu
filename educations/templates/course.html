@@ -1,0 +1,62 @@
+{% extends 'blocks/base.html' %}
+{% load static %}
+
+{% block title %}
+    Courses
+{% endblock %}
+
+{% block content %}
+
+    <div class="container border">
+        <dev class="col">
+            <div class="row">
+                <!-- Latest Posts -->
+                <main class="post blog-post">
+                    <div class="container">
+                        <div class="post-single">
+                            <div class="post-details">
+{#                            <div class="d-flex align-items-center text-write bg-dark rounded shadow-sm">#}
+{#                                    <h1>{{ course.title }}</h1>#}
+{#                                </div>#}
+                                <div class="post-meta d-flex justify-content-between">
+                                    <div class="category">
+                                        {% for type in course.course_type.all %}
+                                            <a href="#">{{ type.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="post-header  bg-purple">
+                                    <h1 class="pb-2">{{ course.title }}</h1>
+                                </div>
+{#                                <h1 class="pb-2 border rounded bg-purple">{{ course.title }}</h1>#}
+
+                                <div class="post-body">
+
+
+                                    <p>{{ course.description }}</p>
+                                    <strong>O`quv davri:</strong><em> {{ course.course_length.title }}</em><br>
+                                    <strong>Boshlanish vaqti:</strong><em> {{ course.start_date }}</em><br>
+                                    <Strong>Narxi:</Strong><em> {{ course.price }} ( {{ course.rate_plan.name }} )</em>
+                                    <br>
+                                    <Strong>Ta`lim turi: </Strong>
+                                    {% for edu_type in course.type_of_education.all %}
+                                        <a href="#" class="tag"><span
+                                                class="badge rounded-pill bg-secondary text-white">{{ edu_type.title }}</span></a>
+                                    {% endfor %}
+
+                                </div>
+                                <div class="post-tags">
+                                    {% for tag in course.tags.all %}
+                                        <a href="#" class="tag">#{{ tag.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </dev>
+    </div>
+
+{% endblock %}
