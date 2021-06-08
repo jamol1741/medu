@@ -8,7 +8,7 @@
 {% block content %}
 
     <div class="container-fluid">
-        <div class="card-columns">
+        <div class="card-columns pr-4">
             {% for course in courses %}
 
                 <div class="card bg-light">
@@ -42,7 +42,7 @@
                             <div class="col-sm-3">
                                 <span title="Davomiyligi" class="fixed">
                                     <div class="small">
-                                    <img src="{% static 'img/time_machine.png' %}" class="ms">
+                                    <img src="{% static 'img/time_machine.png' %}" class="ms" alt="">
                                     {{ course.course_length.title }}
                                     </div>
                                 </span>
@@ -51,7 +51,7 @@
                                 <span title="Narxi" class="fixed">
                                     <div class="text-left">
                                         <div class="small">
-                                        <img src="{% static 'img/pricing.png' %}" class="ms">
+                                        <img src="{% static 'img/pricing.png' %}" class="ms" alt="">
                                         {{ course.price }}
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                             <div class="col">
                                 <span title="Talim turi" class="fixed">
                                     <div class="small">
-                                    <img src="{% static 'img/globe.png' %}" class="ms">
+                                    <img src="{% static 'img/globe.png' %}" class="ms" alt="">
                                     {{ course.get_type_of_education }}
                                     </div>
                                 </span>

@@ -40,7 +40,7 @@ p.card-text {
     }
   } */
 .container-fluid{
-
+    width: auto;
 }
   .card {
     margin: 1rem;
