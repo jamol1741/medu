@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -53,6 +53,12 @@ class Teacher(models.Model):
     def full_name(self):
         return self.first_name + ' ' + self.last_name
 
+    @property
+    def age(self):
+        today = date.today()
+        return today.year - self.date_of_birth.year - \
+               ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+
 
 class Location(models.Model):
     lat = models.CharField(max_length=128)
@@ -69,6 +75,7 @@ class Education(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE,
                                  null=True, blank=True)
     teachers = models.ManyToManyField(Teacher, blank=True)
+    sity = models.CharField(max_length=256, null=False)
 
     def __str__(self):
         return self.title
@@ -182,7 +189,7 @@ class Course(models.Model):
     def url(self):
         return reverse('course', kwargs={'slug': self.slug})
 
-    def save(self, *args, **kwargs): # new
+    def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
@@ -194,5 +201,3 @@ class Course(models.Model):
     @property
     def prev(self):
         return Course.objects.filter(id__gt=self.id)
-
-

@@ -32,7 +32,7 @@
                                     {% for teacher in education.teachers.all %}
                                         <ul>
                                             <li>
-                                                <a href="#">{{ teacher }}</a>
+                                                <a href="/teachers/{{ teacher.id }}">{{ teacher }}</a>
                                             </li>
                                         </ul>
                                     {% endfor %}

@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blocks/base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}
+    Educations
+{% endblock %}
+
+{% include 'blocks/base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="card-columns pr-4">
+            {% for education in educations %}
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h5>{{ education.title }} </h5>
+                    </div>
+                    <div class="card-body text-left">
+                        <p class="card-text">
+                            {{ education.description }}
+                        </p>
+
+                        {# https://maps.google.com/maps?q=41.312736779408134,69.25267606931855&hl=es;z=14&amp;output=embed #}
+                    </div>
+                    <div class="card-body text-left pb-2">
+
+                        <div class="row">
+                            <div class="col fixed">
+                                <a href="/educations/{{ education.id }}" class="btn btn-outline-info ">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-footer text-muted text-right">
+                        <small class="text-muted">{{ education.sity }}</small>
+                    </div>
+                </div>
+
+            {% empty %}
+                <h1>Hozrcha o`quv markazlari yo`q</h1>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

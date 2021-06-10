@@ -1,0 +1,52 @@
+{% extends 'blocks/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ teacher.full_name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container border">
+        <dev class="col">
+            <div class="row">
+                <!-- Latest Posts -->
+                <main class="post blog-post">
+                    <div class="container">
+                        <div class="post-single">
+                            <div class="post-details">
+                                <div class="post-header  bg-purple">
+                                    <h1 class="pb-2">{{ teacher.full_name }}</h1>
+                                </div>
+
+                                <div class="post-body">
+
+                                    <strong>Ismi:</strong><em> {{ teacher.first_name }}</em><br>
+                                    <strong>Familiyasi:</strong><em> {{ teacher.last_name }}</em><br>
+                                    <Strong>Yoshi:</Strong><em> {{ teacher.age }} </em>
+                                    <br>
+                                    <Strong>Sertifikatlari: </Strong>
+                                    {% for certificate in teacher.certificates.all %}
+                                        <span class="badge rounded-pill bg-secondary text-white">{{ sertificate.name }}
+                                            {% if certificate.score %}
+                                                {{ certificate.name }} {{ certificate.score }}
+                                            {% elif certificate.level %}
+                                                {{ certificate.name }} {{ certificate.level }}
+                                            {% elif certificate.degree %}
+                                                {{ certificate.name }} {{ certificate.degree }}
+                                            {% endif %}</span>
+                                    {% empty %}
+                                        <span class="badge rounded-pill bg-secondary text-white"> Sertifikatlari mavjud emas!</span>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </dev>
+    </div>
+
+{% endblock %}

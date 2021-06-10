@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blocks/base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}
+    Teachers
+{% endblock %}
+
+{% include 'blocks/base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="card-columns pr-4">
+            {% for teacher in teachers %}
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h5>{{ teacher.full_name }} </h5>
+                    </div>
+                    <div class="card-body text-left">
+                        <strong>Ismi:</strong><em> {{ teacher.first_name }}</em><br>
+                        <strong>Familiyasi:</strong><em> {{ teacher.last_name }}</em><br>
+                        <Strong>Yoshi:</Strong><em> {{ teacher.age }} </em>
+                        <br>
+                        <Strong>Sertifikatlari: </Strong>
+                        {% for certificate in teacher.certificates.all %}
+                            <span class="badge rounded-pill bg-secondary text-white">{{ sertificate.name }}
+                                {% if certificate.score %}
+                                    {{ certificate.name }} {{ certificate.score }}
+                                {% elif certificate.level %}
+                                    {{ certificate.name }} {{ certificate.level }}
+                                {% elif certificate.degree %}
+                                    {{ certificate.name }} {{ certificate.degree }}
+                                {% endif %}
+                        </span>
+                        {% empty %}
+                            <span class="badge rounded-pill bg-secondary text-white"> Sertifikatlari mavjud emas!</span>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="card-footer text-muted text-right">
+                        <small class="text-muted"></small>
+                    </div>
+                </div>
+
+            {% empty %}
+                <h1>Hozrcha o`quv markazlari yo`q</h1>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
